@@ -1,0 +1,310 @@
+/* 全体のリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+/* タイトル */
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+/* セクション */
+section {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+/* カラーピッカーエリア */
+.color-picker-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.color-picker-area label {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+input[type="color"] {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-color-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #34495e;
+}
+
+.color-preview {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 2px solid #bdc3c7;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+#selectedColorCode {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* ボタン */
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #3498db;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+button:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#addColorBtn {
+  background: #27ae60;
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+}
+
+#addColorBtn:hover {
+  background: #229954;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+}
+
+#savePaletteBtn {
+  background: #e74c3c;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+  width: 100%;
+  margin-top: 10px;
+}
+
+#savePaletteBtn:hover {
+  background: #c0392b;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+#viewSavedPalettesBtn {
+  background: #9b59b6;
+  box-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
+  width: 100%;
+}
+
+#viewSavedPalettesBtn:hover {
+  background: #8e44ad;
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.4);
+}
+
+/* パレット表示 */
+.palette-display {
+  display: flex;
+  gap: 12px;
+  min-height: 60px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #bdc3c7;
+}
+
+.palette-display:empty::before {
+  content: "色を追加してパレットを作成しましょう";
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.color-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.color-item:hover {
+  transform: scale(1.1);
+}
+
+/* 入力欄 */
+.palette-name-area {
+  margin-bottom: 15px;
+}
+
+.palette-name-area label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #bdc3c7;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* 保存済みパレット */
+.saved-palettes-section {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #ecf0f1;
+}
+
+.saved-palettes-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.saved-palette-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.saved-palette-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.saved-palette-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.saved-palette-colors {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.saved-color-item {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.palette-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.palette-actions button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.copy-btn {
+  background: #f39c12;
+  box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+}
+
+.copy-btn:hover {
+  background: #e67e22;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .color-picker-area {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .palette-actions {
+    flex-direction: column;
+  }
+  
+  .palette-actions button {
+    width: 100%;
+  }
+}

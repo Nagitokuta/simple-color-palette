@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>シンプル色パレット生成アプリ</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>シンプル色パレット生成アプリ</h1>
+
+      <section class="color-picker-section">
+        <div class="color-picker-area">
+          <label for="colorPicker">色を選ぶ:</label>
+          <input type="color" id="colorPicker" value="#ffffff" />
+          <button id="addColorBtn">追加</button>
+        </div>
+        <div class="selected-color-display">
+          <span>選択中の色: </span>
+          <span id="selectedColorCode">#FFFFFF</span>
+          <div id="selectedColorBox" class="color-preview"></div>
+        </div>
+      </section>
+
+      <section class="palette-section">
+        <h2>現在のパレット:</h2>
+        <div id="currentPalette" class="palette-display">
+          <!-- JavaScriptで色を追加します -->
+        </div>
+      </section>
+
+      <section class="save-section">
+        <div class="palette-name-area">
+          <label for="paletteName">パレット名:</label>
+          <input type="text" id="paletteName" placeholder="例: 春の色合い" />
+        </div>
+        <button id="savePaletteBtn">パレットを保存</button>
+      </section>
+
+      <section class="navigation-section">
+        <button id="viewSavedPalettesBtn">保存済みパレットを見る</button>
+      </section>
+
+      <!-- 保存済みパレット一覧表示エリア -->
+      <section
+        id="savedPalettesSection"
+        class="saved-palettes-section"
+        style="display: none"
+      >
+        <h2>保存済みパレット一覧</h2>
+        <div id="savedPalettesList" class="saved-palettes-list">
+          <!-- JavaScriptで保存済みパレットを表示します -->
+        </div>
+        <button id="backToMainBtn">トップに戻る</button>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
